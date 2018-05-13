@@ -1,0 +1,33 @@
+apply plugin: 'groovy'
+dependencies {
+    compile localGroovy()
+    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4'
+
+}
+ 
+task add(type: JavaExec) {
+    description 'Un programa agrega un nombre'
+    main = 'com.pinky.Agenda'
+    classpath = sourceSets.main.runtimeClasspath
+ 
+    if (project.hasProperty('nombre')) {
+        args project.getProperty('nombre')
+    }
+}
+task search(type: JavaExec) {
+    description 'Un programa busca un nombre'
+    main = 'com.pinky.FuzzySearch'
+    classpath = sourceSets.main.runtimeClasspath
+ 
+    if (project.hasProperty('search')) {
+        args project.getProperty('nombre')
+    }
+}
+task list(type: JavaExec) {
+    description 'Un programa da una lista de nombres'
+    main = 'com.pinky.NameList'
+    classpath = sourceSets.main.runtimeClasspath
+ 
+}
+ 
+defaultTasks 'add'
