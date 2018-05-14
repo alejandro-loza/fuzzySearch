@@ -10,6 +10,7 @@
  gradle add -P nombre="El nombre que desees agregar"
  gradle list 
  gradle search -P search="Stark"
+ gradle clean test
 ```
 
 #Algoritmo de búsqueda usado
