@@ -54,16 +54,13 @@ class AgendaSpec extends Specification{
         then:
             assert a < b
     }
-   void "must search a name in json format"(){
+    void "must assert levi distance eqqual zero on same word"(){
         setup:
-            FuzzySearch fuzzy = new FuzzySearch()
+           Levenshtein lv = new Levenshtein()
         when:
-          def response = agenda.add(name,filename)
-          def slurped = new JsonSlurper().parseText(response)
-
+            def a = lv.distance( 'Eddard Stark', 'Eddard Stark' )
         then:
-           assert slurped.name == "Edard Stark"
-           assert response.toString() == '{"name":"'+name+'"}'
+            assert a == 0
     }
 
 
