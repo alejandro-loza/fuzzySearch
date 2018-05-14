@@ -5,16 +5,23 @@ import groovy.json.JsonOutput
 class Agenda{
     
     public static void main(String[] args) {
-        add(args[0])
+        add(args[0], 'fuzzy-search.txt')
     }
    
-    static def add(String nameIn){
+    static def add(String nameIn, String filename){
         if (nameIn){
-            def file = new File('fuzzy-search.txt')
+            def file = createFile(filename)
             file << nameIn + '\n' 
-            def json = JsonOutput.toJson([name: nameIn])
-            println json
+            JsonOutput.toJson([name: nameIn])
         }
-        else println "WARNING: ---- Un programa nececita un nombre"
+        else  errorMessage()
+    }
+
+    static def errorMessage(){
+        "WARNING: ---- Un programa nececita un nombre" 
+    }
+
+    static def createFile(String filename){
+        return new File(filename)
     }
 }

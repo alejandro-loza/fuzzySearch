@@ -4,14 +4,15 @@ import groovy.json.JsonOutput
 import com.pinky.Name
 
 class NameList{
+    static List<Name>  nameList = findAll('fuzzy-search.txt')
 
     public static void main(String[] args) {
-        println JsonOutput.toJson(findAll())
+        println JsonOutput.toJson(this.nameList)
     }
 
-    static def findAll(){
+    static List<Name> findAll(String filename){
         List<Name> names = []
-        new File('fuzzy-search.txt').eachLine { line ->
+        new File(filename).eachLine { line ->
              names << new Name(name:line)
         }
         return names.toSorted()

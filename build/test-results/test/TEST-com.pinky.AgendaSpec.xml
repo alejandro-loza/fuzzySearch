@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pinky.AgendaSpec" tests="4" skipped="0" failures="1" errors="0" timestamp="2018-05-14T16:53:24" hostname="localhost.localdomain" time="0.206">
+  <properties/>
+  <testcase name="must return a name in json format" classname="com.pinky.AgendaSpec" time="0.087"/>
+  <testcase name="must a return a error message on missing name" classname="com.pinky.AgendaSpec" time="0.001"/>
+  <testcase name="must return name list in json format" classname="com.pinky.AgendaSpec" time="0.032"/>
+  <testcase name="must assert levi distance" classname="com.pinky.AgendaSpec" time="0.086">
+    <failure message="Condition not satisfied:&#10;&#10;a &lt; b&#10;| | |&#10;8 | 1&#10;  false&#10;" type="org.spockframework.runtime.ConditionNotSatisfiedError">Condition not satisfied:
+
+a &lt; b
+| | |
+8 | 1
+  false
+
+	at com.pinky.AgendaSpec.must assert levi distance(AgendaSpec.groovy:55)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
